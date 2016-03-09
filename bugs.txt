@@ -1,0 +1,2 @@
+2. animation delay
+3. problem when RSS is loaded second time 

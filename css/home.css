@@ -1,0 +1,30 @@
+.home_page{
+	margin: 0 auto;
+	background: #6E6E6E;
+
+}
+
+.homepage_carousel_container{
+	width: 100%;
+}
+
+.homepage_carousel_container img {
+
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+	margin: auto;
+}
+
+
+.carousel-caption{
+	margin: 0 auto;
+	padding: 0 10px;
+	width: 200px;
+	background: #111;
+	color: #bdbdbd;
+	border-radius: 1em;
+}
+
+

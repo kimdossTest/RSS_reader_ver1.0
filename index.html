@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  	<!--angular-->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+
+	<!--css-->
+	<link rel="stylesheet" href="css/RSS.css">	
+	<link rel="stylesheet" href="css/font.css">	
+	<link rel="stylesheet" href="css/bg.css">	
+	<link rel="stylesheet" href="css/animation.css">
+	<link rel="stylesheet" href="css/instructions.css">
+	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/home.css">
+
+	<!--bootstrap-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  	<link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<!--js-->
+	<script src="js/controllers.js"></script>
+	<script src="js/service.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/directive.js"></script>
+</head>
+<body ng-app="feedTest" ng-controller="indexCon">
+
+<nav class="top_bar">
+	<ul class="top_bar_list top_bar_font">
+		<img class="logo" src="css/img/rss_logo.png">
+	    <a href="#/"><li class="top_bar_list_items top_bar_font" ng-class="{top_bar_list_items_selected: topBarItemSelected == 1}" ng-click="topBarItemSelected = 1">Home</li></a>
+	    <a href="#/RSS"><li class="top_bar_list_items top_bar_font" ng-class="{top_bar_list_items_selected: topBarItemSelected == 2}" ng-click="topBarItemSelected = 2">RSS Reader</li></a>
+	    <a href="#/Contact"><li class="top_bar_list_items top_bar_font" ng-class="{top_bar_list_items_selected: topBarItemSelected == 3}" ng-click="topBarItemSelected = 3">Contact</li></a>
+	</ul>
+</nav>
+
+
+
+
+<div ng-view class="main_container resizeh">
+	
+</div>
+
+<div class="footer">
+	<div class="footer_container footer_font">
+		<h4>Page_test_ver1.0</h4>
+	</div>
+</div>
+
+
+</body>
+
+
+
+
+
+</html>

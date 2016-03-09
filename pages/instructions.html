@@ -1,0 +1,27 @@
+<div class="instruction_page resizeh">
+	<div class="instruction_close_button">
+		<a href="#/"><p>Close &#10006</p></a>
+	</div>
+	
+	<div class="instruction_step1">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+		<span class="instruction_font">Input the name of the news website<br>
+		Then press the search button.</span>
+	</div>
+
+	<div class="instruction_step2" ng-show="showInstructionStep2">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+		<span class="instruction_font">Select the news website</span>
+	</div>
+
+
+	<div class="instruction_step3" ng-show="showInstructionStep3">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+		<span class="instruction_font">Please close the instructions page<br>
+		before choosing the news</span>
+	</div>
+
+	<div class="instruction_end resizeh" ng-show="endInstruction"></div>
+
+</div>
+

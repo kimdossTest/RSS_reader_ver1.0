@@ -1,0 +1,107 @@
+<div class="feedControlPanel resizeh bg_color_1">
+	<div class="main_panel" ng-show="panelshow">
+		<!--search area-->
+		<div class="search_area">
+			<div class="blocks">
+				<!--<a href="#/instructions"><div class="button_1"><center>How to use</center></div></a>-->
+				<span class="panel_title_1">Step 1:</span><br>
+				<span class="panel_title_2">Search news website: </span><br>
+				<center>
+					<input type="text" class="search_panel btn btn-default btn-sm" ng-model="inputUrl" placeholder="CNN / CBC"></input>
+
+
+					<button type="button" class="btn btn-default btn-sm" ng-click="startSearch(inputUrl)" ng-disabled="inputUrl.length == 0 || inputUrl == undefined">
+		          		<span class="glyphicon glyphicon-search"></span> Search 
+		        	</button>
+				</center>
+			</div>
+			<!--step 2-->
+			<div class="blocks" ng-show="show_step_2">
+				<div class="button_1" ng-class="{'show_RSS_button_show': showRSS, 'show_RSS_button_hide': !showRSS}" ng-click="showRSS=!showRSS" ng-show="showRSSButton"></div>
+
+				<span class="panel_title_1">Step 2:</span><br>
+				<span class="panel_title_2">Select: </span><br>
+
+				<ul class="result_list">					
+					<li href="#" class="result_list_items result_font" ng-repeat="items in searchContent | filter:selectedSearch: true" ng-click="loadSelectedFeeds(items.url, items.link)" ng-class="{selected_item: items.link == highlightSearchItem }">
+
+						<span class="search_result_items_content" ng-bind-html="items.title" title="{{items.link}}"></span>
+						<!--<span ng-bind-html="items.link"></span>	-->
+					</li>		
+				</ul>
+				
+
+
+				<button type="button" class="expand_button btn btn-default btn-sm" ng-click="searchExpand()" ng-show="searchExpandButton">
+						<span class="glyphicon glyphicon-resize-vertical"></span>Expand
+				</button>
+
+
+			</div>
+			<div class="description_box blocks description_font" ng-show="show_description_box">
+				<div class="panel panel-default">
+					<div class="panel-heading bg_color_1"><b>provided by:</b></div>
+					<div class="panel-body">{{web_title}}</div>	
+					<div class="panel-heading"><b>description:</b></div>
+					<div class="panel-body">{{web_description}}</div>	
+				</div>	
+			</div>	
+			<div class="selectedlink_box blocks description_font" ng-show="showSelectedlinkBox">
+				<div class="panel panel-default">
+					<div class="panel-heading bg_color_1"><b>Selected link:</b></div>
+					<div class="panel-body">{{LoadedUrl}}</div>		
+				</div>	
+			</div>	
+
+		</div>
+		
+		
+		<!--<div class="step_3">step 3: click the link: <br><a href="{{filterLoadedPage}}" target="displayContainer">{{filterLoadedPage}}</a></div>-->
+	</div>
+	<!--RSS area-->
+
+	<div class="RSS_area resizeh" ng-show="showRSS">
+		<span class="panel_title_1">Step 3:</span><br>
+		<span class="panel_title_2">Choose news: </span><br>
+		<input type="text" class="search_RSS_panel btn btn-default btn-sm" ng-model="filterFeedContent" placeholder="Search contents"></input>
+
+		<span class="clear_RSS_search_button glyphicon glyphicon-refresh" ng-click="filterFeedContent=undefined"></span>
+
+		
+
+		<div class="RRS_container">
+			<span class="label label-default">{{(loadedContent| filter:filterFeedContent).length}} items</span>
+			<ul class="RRS_container_list result_font result_list">	
+			
+				<li class="RRS_container_list_items result_list_items" ng-repeat="news_items in loadedContent | filter:filterFeedContent" ng-class="{selected_item: news_items.link == highlightFeddItem }">			
+					<!--<img class="img-rounded" ng-src="{{news_items.mediaGroups[0].contents[0].url}}" />
+					{{news_items.mediaGroups[0].contents[0].url}}<br>
+					-->
+
+					<a href="{{LoadedUrl}}" target="displayContainer" ng-click="loadFeedPage(news_items.link)">{{news_items.title.link}}<h5 class="RSS_title">{{news_items.title}}</h5></a>						
+
+					<p class="RSS_content">{{news_items.contentSnippet}}
+						<span ng-hide="news_items.contentSnippet.length > 0">No content is provided!</span>
+					</p>
+						
+					<span class="RSS_date">Published date: {{news_items.publishedDate}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+
+	<!--<div class="display_button" ng-click="panelshow=!panelshow">
+		<span>show</span>
+	</div>-->
+</div>
+
+
+
+<div class="displayArea resizew">
+	<iframe class="displayContainer resizeh" name="displayContainer">
+		<p>Your browser does not support iframes. Open your link in a <a href="{{LoadedUrl}}" target="_blank">new page</a></p>
+	</iframe>
+	<!--<a href="index.html" class="reset"></a>-->
+</div>

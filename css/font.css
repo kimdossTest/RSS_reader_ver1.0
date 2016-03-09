@@ -1,0 +1,53 @@
+.result_font{
+	color: #111;
+	font-weight: 500;
+}
+
+.panel_title_1{
+	font-weight: 600;
+	font-size: 120%;
+	color: #bdbdbd;
+
+}
+
+.panel_title_2{
+	font-weight: 500;
+	font-size: 110%;
+	color: #bdbdbd;
+}
+
+.description_font{
+	color: #111;	
+}
+
+.panel-heading{
+	text-transform: capitalize;
+}
+
+.RSS_title{
+	font-size: 110%;
+	font-weight: 600;
+}
+
+.RSS_content{
+}
+
+.RSS_date{
+	font-size: 90%;
+}
+
+.instruction_font{
+	font-weight: 600;
+	font-size: 110%;
+}
+
+.top_bar_font{
+	text-decoration: none;
+	color: #bdbdbd;
+	font-weight: 600;
+}
+
+.footer_font{
+	font-weight: 600;
+	color: #bdbdbd;
+}

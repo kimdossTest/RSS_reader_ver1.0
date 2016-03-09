@@ -1,0 +1,63 @@
+	app.controller('feedCtrl', ['$scope','$timeout','feedService', function ($scope,$timeout,feedservices) {
+		var timeout; //respond to request after 0.3s
+		$scope.show=true;
+		$scope.$watch(
+			function() {return $scope.inputUrl}, 
+			function(newUrl, oldUrl){
+				if ( newUrl !== oldUrl ) {
+					if (timeout) $timeout.cancel(timeout);
+					timeout = $timeout(function() {
+		        	$scope.show=true;
+		           	feedservices.findFeed(newUrl).then(function(datas){
+						$scope.searchContent=datas.data.responseData.entries;
+					});
+	        		}, 300);
+	        	}
+			}
+		);
+
+
+
+	app.directive('resizeArea', ['$window', function ($window) {
+
+	    return {
+	        link: link,
+	        restrict: 'C',        
+	    };
+    	function link(scope, element, attrs){
+    		//initial heighr
+	      	scope.e_height = $window.innerHeight;
+	      	element.css({
+					height:scope.e_height +'px'		
+			})
+			//resize
+	       	angular.element($window).bind('resize', function(){
+	        	scope.e_height = $window.innerHeight;
+	        	element.css({
+					height:scope.e_height +'px'		
+				})
+	        	scope.$digest();
+	       	});
+    	}
+	}]);
+
+app.controller('ServiceController', ['$scope', '$timeout', 'githubService',
+  function($scope, $timeout, githubService) {
+    // The same example as above, plus the $timeout service
+    var timeout;
+    $scope.$watch('username', function(newVal) {
+      if (newVal) {
+        if (timeout) $timeout.cancel(timeout);
+        timeout = $timeout(function() {
+          githubService.events(newVal)
+          .success(function(data, status) {
+            $scope.events = data.data;
+          });
+        }, 350);
+      }
+    });
+  }]);
+
+
+http://jsfiddle.net/mahbub/b8Wcz/
+
