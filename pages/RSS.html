@@ -21,7 +21,7 @@
 
 				<span class="panel_title_1">Step 2:</span><br>
 				<span class="panel_title_2">Select: </span><br>
-
+				<h3 class = "loading" ng-show="showSearchLoading"> Loading... </h3>
 				<ul class="result_list">					
 					<li href="#" class="result_list_items result_font" ng-repeat="items in searchContent | filter:selectedSearch: true" ng-click="loadSelectedFeeds(items.url, items.link)" ng-class="{selected_item: items.link == highlightSearchItem }">
 
@@ -33,7 +33,8 @@
 
 
 				<button type="button" class="expand_button btn btn-default btn-sm" ng-click="searchExpand()" ng-show="searchExpandButton">
-						<span class="glyphicon glyphicon-resize-vertical"></span>Expand
+						<span class="glyphicon glyphicon-resize-vertical"></span>
+						<span>Expand</span>
 				</button>
 
 

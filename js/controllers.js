@@ -19,6 +19,9 @@ appCon.controller('feedCtrl', ['$scope','feedService', function ($scope,feedserv
 		$scope.showInstructionStep3 = false;
 		$scope.endInstruction = false;
 		$scope.showSelectedlinkBox = false;
+		$scope.showSearchLoading = true;
+
+		
 
 		
 		$scope.startSearch = function(url){
@@ -26,6 +29,7 @@ appCon.controller('feedCtrl', ['$scope','feedService', function ($scope,feedserv
 			$scope.showInstructionStep2 = true;
 		    feedservices.findFeed(url).then(function(contents){
 			$scope.searchContent=contents.data.responseData.entries;
+			$scope.showSearchLoading = false;
 			});
 			//if search again, reset previous layout and results
 			$scope.searchExpandButton = false;
@@ -52,7 +56,7 @@ appCon.controller('feedCtrl', ['$scope','feedService', function ($scope,feedserv
 			$scope.showRSS = true; //show RSS area
 			$scope.showRSSButton = true; //show button
 			feedservices.loadFeed(url).then(function(contents){
-				$scope.loadedContent=contents.data.responseData.feed.entries;
+				$scope.loadedContent=contents.data.responseData.feed.entries;				
 				if(contents.data.responseData.feed.description.length>0){
 					$scope.web_description=contents.data.responseData.feed.description;
 				} else{
@@ -73,6 +77,10 @@ appCon.controller('feedCtrl', ['$scope','feedService', function ($scope,feedserv
 			$scope.highlightFeddItem=url;
 			$scope.showRSS = false;	
 			$scope.showSelectedlinkBox = true;		
+		}
+
+		$scope.sendFeedBack = function(){
+			alert("Thanks for your comment!")
 		}
 
 

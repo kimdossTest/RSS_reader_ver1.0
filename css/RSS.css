@@ -64,6 +64,10 @@ body{
 	left: 122px;
 }
 
+.expand_button span{
+	font-weight: 600;
+}
+
 .result_list{
 	background: whitesmoke;
 	padding:0;
@@ -166,6 +170,7 @@ body{
 }
 
 .show_RSS_button_show:after{
+	font-weight: 600;
 	content: 'Hide RSS';
 }
 
@@ -175,6 +180,7 @@ body{
 }
 
 .show_RSS_button_hide:after{
+	font-weight: 600;
 	content: 'Show RSS';
 }
 
@@ -209,4 +215,7 @@ body{
 }
 
 
-
+.loading {
+	color: #bdbdbd;
+	text-align: center; 
+}
