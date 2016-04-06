@@ -33,13 +33,13 @@ var appResize=angular.module('appResize', []);
     		//initial heighr
     		scope.e_width = $window.innerWidth;
 	      	element.css({
-					width:(scope.e_width) -260 +'px'		
+					width:(scope.e_width) -290 +'px'		
 			})
 			//resize
 	       	angular.element($window).bind('resize', function(){
 	        	scope.e_width = $window.innerWidth;
 	        	element.css({
-					width:(scope.e_width ) -260 +'px'		
+					width:(scope.e_width ) -290 +'px'		
 				})
 	        	scope.$digest();
 	       	});
